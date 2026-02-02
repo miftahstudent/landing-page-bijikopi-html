@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kopi Nusantara</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #f8f5f2;
+        color: #333;
+      }
+
+      header {
+        position: relative;
+        height: 100vh;
+        background-image: url("https://images.unsplash.com/photo-1513530176992-0cf39c4cbed4?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+        padding: 0 20px;
+        overflow: hidden;
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* efek gelap */
+        backdrop-filter: blur(3px); /* efek blur halus */
+        z-index: 1;
+      }
+
+      header div {
+        position: relative;
+        z-index: 2;
+      }
+
+      header h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 4px black;
+      }
+
+      header p {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+        color: #f4c06b; /* ubah warna teks jadi emas kopi */
+      }
+
+      /* transisi ke bawah */
+      .section#produk {
+        margin-top: -80px; /* agar menyambung lancar ke bawah */
+        padding-top: 100px;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        background-color: #f8f5f2;
+      }
+
+      .btn-primary {
+        padding: 15px 30px;
+        background-color: #6b4c35;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background 0.3s ease;
+      }
+
+      .product-content .btn-primary {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 10px;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+
+      .btn-primary:hover {
+        background-color: #4b3524;
+      }
+
+      .section {
+        padding: 60px 20px;
+        max-width: 1200px;
+        margin: auto;
+      }
+
+      .section h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        color: #6b4c35;
+      }
+
+      .products {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+      }
+
+      .product {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+      }
+
+      .product:hover {
+        transform: translateY(-5px);
+      }
+
+      .product img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .product-content {
+        padding: 20px;
+      }
+
+      .product-content h3 {
+        color: #6b4c35;
+        margin-bottom: 10px;
+      }
+
+      .product-content p {
+        font-size: 0.95rem;
+        margin-bottom: 15px;
+      }
+
+      .reviews,
+      .contact {
+        text-align: center;
+      }
+
+      .review {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin: 10px auto;
+        max-width: 700px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .review h4 {
+        color: #6b4c35;
+        margin-bottom: 5px;
+      }
+
+      .review p {
+        font-style: italic;
+      }
+
+      .social-buttons {
+        margin-top: 30px;
+      }
+
+      .social-buttons a {
+        margin: 0 10px;
+        text-decoration: none;
+        padding: 12px 24px;
+        background-color: #6b4c35;
+        color: white;
+        border-radius: 30px;
+        display: inline-block;
+        transition: background 0.3s;
+      }
+
+      .social-buttons a:hover {
+        background-color: #4b3524;
+      }
+
+      footer {
+        background-color: #6b4c35;
+        color: white;
+        text-align: center;
+        padding: 20px 0;
+      }
+
+      .story {
+        background-color: #fff8f2;
+        border-top: 1px solid #e0d6ce;
+        border-bottom: 1px solid #e0d6ce;
+        border-radius: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div>
+        <h1>Biji Kopi Nusantara</h1>
+        <p style="color: hsl(0, 0%, 100%)">
+          Nikmati cita rasa kopi asli Indonesia
+        </p>
+        <a href="#produk" class="btn-primary">Lihat Produk</a>
+      </div>
+    </header>
+
+    <section class="section story" id="cerita">
+      <h2>Cerita Biji Kopi Nusantara</h2>
+      <p
+        style="
+          max-width: 800px;
+          margin: 20px auto;
+          line-height: 1.8;
+          text-align: center;
+        "
+      >
+        Biji kopi Nusantara lahir dari kekayaan alam Indonesia yang tersebar
+        dari Aceh hingga Papua. Setiap daerah memiliki karakter unik yang
+        dipengaruhi oleh iklim, tanah vulkanik, dan cara pengolahan tradisional.
+        Mulai dari rasa earthy kopi Mandailing, aroma citrus Bali Kintamani,
+        hingga fermentasi alami kopi Luwak — semuanya memberikan pengalaman rasa
+        yang tak terlupakan. Kami menghadirkan cita rasa asli dari kebun
+        langsung ke cangkir Anda.
+      </p>
+    </section>
+
+    <section class="section" id="produk">
+      <h2>Produk Biji Kopi</h2>
+      <div class="products">
+        <div class="product">
+          <img
+            src="https://infoagribisnis.com//wp-content/uploads/2017/01/10559787_272667522934648_6594191969890354065_n.jpg"
+            alt="Aceh Gayo"
+          />
+          <div class="product-content">
+            <h3>Aceh Gayo</h3>
+            <p>Catatan coklat hitam dan rempah khas tanah Gayo.</p>
+            <p><strong>Rp50.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://blog.buahberdikari.com/wp-content/uploads/2020/12/natural.jpg-1.jpg"
+            alt="Java"
+          />
+          <div class="product-content">
+            <h3>Java Preanger</h3>
+            <p>Kopi klasik dengan tubuh berat dan aroma herba.</p>
+            <p><strong>Rp40.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://ganggaroastery.com/wp-content/uploads/2021/12/coffee-producing-country-2021-1024x683.jpg"
+            alt="Bali Kintamani"
+          />
+          <div class="product-content">
+            <h3>Bali Kintamani</h3>
+            <p>Rasa buah segar dan aroma citrus yang lembut.</p>
+            <p><strong>Rp40.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://d1r9hss9q19p18.cloudfront.net/uploads/2016/09/biji-kopi-Toraja.jpg"
+            alt="Toraja"
+          />
+          <div class="product-content">
+            <h3>Sulawesi Toraja</h3>
+            <p>Pedas, berasap, dengan hasil akhir yang renyah.</p>
+            <p><strong>Rp45.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://cdngnfi2.sgp1.cdn.digitaloceanspaces.com/gnfi/uploads/images/2021/05/2701462021-bajawa.jpg"
+            alt="Flores Bajawa"
+          />
+          <div class="product-content">
+            <h3>Flores Bajawa</h3>
+            <p>Kopi ini mempunyai Rasa bunga, coklat fudge, dan manis alami.</p>
+            <p><strong>Rp35.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://awsimages.detik.net.id/community/media/visual/2022/08/18/negara-penghasil-biji-kopi-terbanyak-2.jpeg?w=600&q=90"
+            alt="Papua Wamena"
+          />
+          <div class="product-content">
+            <h3>Papua Wamena</h3>
+            <p>Kopi langka dari tanah tinggi Papua yang eksotis.</p>
+            <p><strong>Rp60.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://kopisetempat.com/wp-content/uploads/2024/04/Mandheling_Kopi-1-scaled.jpg"
+            alt="Mandailing"
+          />
+          <div class="product-content">
+            <h3>Mandailing</h3>
+            <p>Kopi Sumatera dengan rasa bold dan earthy.</p>
+            <p><strong>Rp48.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://www.lansgrupo.com/wp-content/uploads/2021/03/Kopi-Luwak-Coffee-Beans-10.jpg"
+            alt="Luwak"
+          />
+          <div class="product-content">
+            <h3>Kopi Luwak</h3>
+            <p>Kopi premium dengan proses fermentasi alami.</p>
+            <p><strong>Rp120.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+        <div class="product">
+          <img
+            src="https://d1r9hss9q19p18.cloudfront.net/uploads/2016/04/hot-black-coffee-1680x1050.jpg"
+            alt="Bajigur Blend"
+          />
+          <div class="product-content">
+            <h3>Bajigur Blend</h3>
+            <p>
+              Campuran kopi robusta dan rempah khas Sunda, nikmat diseduh
+              hangat.
+            </p>
+            <p><strong>Rp38.000</strong></p>
+            <a class="btn-primary" href="#">Beli</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews">
+      <h2>Ulasan Pembeli</h2>
+      <div class="review">
+        <h4>Rina, Jakarta</h4>
+        <p>
+          "Rasa Aceh Gayo-nya bener-bener mantap! Cocok buat pecinta kopi
+          hitam."
+        </p>
+      </div>
+      <div class="review">
+        <h4>Andi, Surabaya</h4>
+        <p>
+          "Paling suka Bali Kintamani, ada rasa asam manis segar yang beda."
+        </p>
+      </div>
+      <div class="review">
+        <h4>Lina, Bandung</h4>
+        <p>"Sudah langganan di sini. Packing rapi, pengiriman cepat!"</p>
+      </div>
+    </section>
+
+    <section class="section contact" id="kontak">
+      <h2>Kontak & Sosial Media</h2>
+      <p>Hubungi kami untuk pemesanan khusus atau reseller:</p>
+      <p>Email: kopixxxx@gmail.com | WA: 08xx-xxx-xxx</p>
+      <div class="social-buttons">
+        <a href="" target="_blank">Instagram</a>
+        <a href="" target="_blank">Shopee</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Biji Kopi Nusantara. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
